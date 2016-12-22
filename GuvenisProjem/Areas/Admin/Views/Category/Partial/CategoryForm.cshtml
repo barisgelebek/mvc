@@ -1,0 +1,48 @@
+﻿@model GuvenisProjem.Areas.Admin.Models.DTO.CategoryVM
+<script src="~/scripts/ckeditor/ckeditor.js"></script>
+<div class="x_content">
+    <br>
+    <P class="form-horizontal form-label-left input_mask">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Kategori Adı (Girilmesi zorunlu alan)" })
+                    @Html.ValidationMessageFor(x => x.Name)
+                    <br />
+                    @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                </div>
+            </div>
+
+                        <div class="form-group">
+                            @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.TextBoxFor(x => x.icon, new { @class = "form-control", @placeholder = "Yan taraftaki icon'lardan seçiniz" })
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.TextAreaFor(x => x.Description, new { @class = "ckeditor", @rows = "20", @placeholder = "Kategori Açıklama (Girilmesi zorunlu alan)" })
+                                @Html.ValidationMessageFor(x => x.Description)
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+                        @*<div class="ln_solid"></div>*@
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-8">
+                                <br />
+                                <a class="btn btn-primary" href="/Admin/Category/Index">&nbsp;&nbsp; İptal &nbsp;&nbsp;</a>
+                                <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kaydet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+
+        }
+
+    </P>
+</div>
+

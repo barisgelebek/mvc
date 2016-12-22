@@ -1,0 +1,47 @@
+﻿@model GuvenisProjem.Areas.Admin.Models.DTO.ProjectVM
+
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Proje Adı</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Proje Adı (Girilmesi zorunlu alan)" })
+        @Html.ValidationMessageFor(x => x.Title)
+        <br />
+        @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.LabelFor(x => x.PostImage)
+        <input type="file" multiple name="PostImage" onchange="showimagepreview(this)"/>
+        <br />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Kategori</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.DropDownList("CategoryID", Model.drpCategories, "Seçiniz", new { @class="form-control"})
+        @*@Html.DropDownList("CategoryID", Model.drpCategories, "seçiniz")*@
+        <br />
+        @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Proje Detay</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @*<textarea class="ckeditor" name="Content" id="ckeditor"></textarea>*@
+        @Html.TextAreaFor(x => x.Content, new { @class = "ckeditor"})
+        @Html.ValidationMessageFor(x => x.Content)
+        <br />
+        @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+    </div>
+</div>
+@*<div class="ln_solid"></div>*@
+<div class="form-group">
+    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-8">
+        <br />
+        <a class="btn btn-primary" href="/Admin/Project/Index">&nbsp;&nbsp; İptal &nbsp;&nbsp;</a>
+        <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kaydet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model GuvenisProjem.Areas.Admin.Models.DTO.SiteMenuVM
+<div class="x_content">
+    <br>
+    <P class="form-horizontal form-label-left input_mask">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Menü Adı (Girilmesi zorunlu alan)" })
+                    @Html.ValidationMessageFor(x => x.Name)
+                    <br />
+                    @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "Url giriniz (Girilmesi zorunlu alan)" })
+                    <br />
+                    @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                </div>
+            </div>
+                        <div class="form-group">
+                            @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.TextBoxFor(x => x.CssClass, new { @class = "form-control", @rows = "20", @placeholder = "Yan taraftaki icon'lardan seçiniz" })
+                                @Html.ValidationMessageFor(x => x.CssClass)
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+                        @*<div class="ln_solid"></div>*@
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-8">
+                                <br />
+                                <a class="btn btn-primary" href="/Admin/SiteMenu/Index">&nbsp;&nbsp; İptal &nbsp;&nbsp;</a>
+                                <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kaydet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+
+        }
+
+    </P>
+</div>
+
+

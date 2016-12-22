@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "AddProjectImage";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<script src="~/scripts/jquery-1.8.2.js"></script>
+@model GuvenisProjem.Areas.Admin.Models.DTO.ProjectImageVM
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Proje Resim Ekle <small>Proje Resim Ekleme Formu</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>*@
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- burası-->
+            @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormMessagesPart.cshtml")
+            <script src="~/scripts/ckeditor/ckeditor.js"></script>
+            <div class="x_content">
+                <br>
+                <P class="form-horizontal form-label-left input_mask">
+                    @using (Html.BeginForm("AddProjectImage", "ProjectImage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Proje Adı</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Resim Adı (Girilmesi zorunlu alan)" })
+                                @Html.ValidationMessageFor(x => x.Name)
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.LabelFor(x => x.PostImage)
+                                <input type="file" multiple name="PostImage" onchange="showimagepreview(this)" />
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Kategori</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.DropDownList("ProjectID", Model.drpProject, "Seçiniz", new { @class = "form-control" })
+                                @*@Html.DropDownList("CategoryID", Model.drpCategories, "seçiniz")*@
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Proje Detay</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @*<textarea class="ckeditor" name="Content" id="ckeditor"></textarea>*@
+                                @Html.TextAreaFor(x => x.Description, new { @class = "ckeditor" })
+                                @Html.ValidationMessageFor(x => x.Description)
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+                        @*<div class="ln_solid"></div>*@
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-8">
+                                <br />
+                                <a class="btn btn-primary" href="/Admin/Project/Index">&nbsp;&nbsp; İptal &nbsp;&nbsp;</a>
+                                <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kaydet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+                    }
+                </P>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Upload <small>Yüklenen resim önizleme</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>*@
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- burası-->
+
+            <div class="x_content">
+
+                <img id="PostImage" alt="Lütfen form içindeki 'Gözat' butonu ile resim seçiniz!" />
+
+                <script type="text/javascript">
+                    function showimagepreview(input) {
+                        if (input.files && input.files[0]) {
+                            var filerdr = new FileReader();
+                            filerdr.onload = function (e) {
+                                $('#PostImage').attr('src', e.target.result);
+                            }
+                            filerdr.readAsDataURL(input.files[0]);
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
