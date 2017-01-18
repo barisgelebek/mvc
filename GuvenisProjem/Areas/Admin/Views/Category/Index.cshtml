@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kategoriler";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 @model List<GuvenisProjem.Areas.Admin.Models.DTO.CategoryVM>
@@ -59,8 +59,8 @@
                                 <tr id="a_@item.ID">
                                     <td>@item.ID</td>
                                     <td>@item.Name</td>
-                                    <td>@Html.Raw(@item.Description)</td>
-                                    <td>@item.icon</td>
+                                    <td>@Html.Raw(item.Description)</td>
+                                    <td><i class="fa @item.icon"></i></td>
                                     <td><a class="btn btn-primary" href="/Admin/Category/UpdateCategory/@item.ID">Güncelle</a></td>
                                     <td><button type="button" class="btn btn-danger" onclick="Delete('/Admin/Category/DeleteCategory/',@item.ID)">Sil</button></td>
                                 </tr>
@@ -72,7 +72,16 @@
                 </div>
             </div>
         </div>
-        
+        <script>
+                        function copyToClipboard(element) {
+                            var $temp = $("<input>");
+                            $("body").append($temp);
+                            $temp.val($(element).text()).select();
+                            document.execCommand("copy");
+                            $temp.remove();
+                        }
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         
         
     </div>

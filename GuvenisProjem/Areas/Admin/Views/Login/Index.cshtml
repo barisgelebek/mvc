@@ -50,12 +50,19 @@
                         <h1>Yönetim paneli girişi</h1>
                         @Html.ValidationSummary()
                         <div>
-                            @Html.TextBoxFor(x => x.EMail, new { @class = "form-control", type = "email", placeholder = "EMail" })
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
                             @*@Html.ValidationMessageFor(x => x.EMail)*@
                         </div>
                         <div>
                             @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Password" })
                             @*@Html.ValidationMessageFor(x=> x.Password)*@
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.Remember)
+                            @if (@ViewBag.remember == true)
+                            {@Html.CheckBoxFor(m => m.Remember, new { @checked = "checked" })}
+                            else
+                            {@Html.CheckBoxFor(m => m.Remember)}
                         </div>
                         <div>
                             <button type="submit" class="btn btn-success submit">Giriş Yap</button>

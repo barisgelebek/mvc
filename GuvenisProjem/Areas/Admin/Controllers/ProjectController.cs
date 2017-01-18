@@ -19,6 +19,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 Title = x.Title,
                 CategoryName = x.Category.Name,
                 Content = x.Content,
+                ImagePath = x.ImagePath,
                 ID = x.ID
             }).ToList();
 
@@ -66,7 +67,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 db.SaveChanges();
 
                 ViewBag.IslemDurum = 1;
-                return View(vmodel);
+                return RedirectToAction("Index", "Project");
             }
             else
             {
@@ -83,6 +84,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
             model.CategoryID = project.CategoryID;
             model.Title = project.Title;
             model.Content = project.Content;
+            model.ImagePath = project.ImagePath;
             model.drpCategories = DrpImageServices.getDrpCategories();
 
             return View(model);
@@ -92,24 +94,41 @@ namespace GuvenisProjem.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult UpdateProject(ProjectVM model)
         {
-            model.drpCategories = DrpImageServices.getDrpCategories();
+            ProjectVM vmodel = new ProjectVM();
+            vmodel.drpCategories = DrpImageServices.getDrpCategories();
+
+            string filename = "";
+            foreach (string name in Request.Files)
+            {
+                model.PostImage = Request.Files[name];
+                string ext = Path.GetExtension(model.PostImage.FileName);
+                if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".JPG" || ext == ".JPEG" || ext == ".PNG")
+                {
+                    string uniqnumber = Guid.NewGuid().ToString();
+                    filename = uniqnumber + model.PostImage.FileName;
+                    model.PostImage.SaveAs(Server.MapPath("~/Areas/Admin/Content/Site/images/project/" + filename));
+                }
+
+            }
+
             if (ModelState.IsValid)
             {
                 Project project = db.Projects.FirstOrDefault(x => x.ID == model.ID);
                 project.CategoryID = model.CategoryID;
                 project.Title = model.Title;
                 project.Content = model.Content;
+                project.ImagePath = filename;
 
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1;
 
-                return View(model);
+                return RedirectToAction("Index", "Project");
             }
             else
             {
                 ViewBag.IslemDurum = 2;
 
-                return View(model);
+                return View(vmodel);
 
             }
         }

@@ -23,9 +23,9 @@ namespace GuvenisProjem.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (db.AdminUsers.Any(x => x.EMail == model.EMail && x.Password == model.Password && x.IsDeleted == false))
+                if (db.AdminUsers.Any(x => x.Name == model.Name && x.Password == model.Password && x.IsDeleted == false))
                 {
-                    FormsAuthentication.SetAuthCookie(model.EMail, true);
+                    FormsAuthentication.SetAuthCookie(model.Name, true);
                     return RedirectToAction("Index", "Home");
 
                 }

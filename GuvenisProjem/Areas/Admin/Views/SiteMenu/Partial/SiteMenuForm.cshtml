@@ -5,7 +5,7 @@
         @using (Html.BeginForm())
         {
             <div class="form-group">
-                @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Menü Adı</label>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Menü Adı (Girilmesi zorunlu alan)" })
                     @Html.ValidationMessageFor(x => x.Name)
@@ -15,7 +15,7 @@
             </div>
 
             <div class="form-group">
-                @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Menü URL</label>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "Url giriniz (Girilmesi zorunlu alan)" })
                     <br />
@@ -23,7 +23,7 @@
                 </div>
             </div>
                         <div class="form-group">
-                            @*<label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>*@
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Menü İCON</label>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 @Html.TextBoxFor(x => x.CssClass, new { @class = "form-control", @rows = "20", @placeholder = "Yan taraftaki icon'lardan seçiniz" })
                                 @Html.ValidationMessageFor(x => x.CssClass)

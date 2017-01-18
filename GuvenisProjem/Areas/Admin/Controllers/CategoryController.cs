@@ -10,7 +10,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
 {
     public class CategoryController : BaseController
     {
-        public object Cetegory { get; private set; }
+       // public object Cetegory { get; private set; }
 
         public ActionResult Index()
         {
@@ -24,16 +24,18 @@ namespace GuvenisProjem.Areas.Admin.Controllers
 
             return View(model);
         }
-
+        
         public ActionResult AddCategory()
         {
             return View();
         }
 
+        [Authorize(Roles= ("IsActive = False"))]
         [ValidateInput(false)]
         [HttpPost]
         public ActionResult AddCategory(CategoryVM model)
         {
+            
             if (ModelState.IsValid)
             {
                 Category category = new Category();
@@ -45,7 +47,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1;
 
-                return View();
+                return RedirectToAction("Index", "Category");
             }
             else
             {
@@ -82,7 +84,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
 
                 db.SaveChanges();
 
-                return View();
+                return RedirectToAction("Index", "Category");
             }
             else
             {

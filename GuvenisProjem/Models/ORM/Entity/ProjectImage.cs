@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -18,7 +19,7 @@ namespace GuvenisProjem.Models.ORM.Entity
 
         public string ImagePath { get; set; }
 
-        [ForeinKey("ProjectID")]
+        [ForeignKey("ProjectID")]
         public virtual Project Project { get; set; }
     }
 }

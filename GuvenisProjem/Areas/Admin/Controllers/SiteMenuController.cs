@@ -44,7 +44,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1;
 
-                return View();
+                return RedirectToAction("Index", "SiteMenu");
             }
             else
             {
@@ -80,7 +80,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
 
                 db.SaveChanges();
 
-                return View();
+                return RedirectToAction("Index", "SiteMenu");
             }
             else
             {

@@ -6,7 +6,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
-        <strong>Başarılı! </strong> @FormMessages.addsuccess
+        <i class="fa fa-upload"> &nbsp;<strong> Başarılı!<br /> </strong></i> @FormMessages.addsuccess
     </div>
 }
 
@@ -16,6 +16,6 @@ else if (ViewBag.IslemDurum == 2)
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
-        <strong>Hata! </strong> @FormMessages.required
+        <i class="fa fa-warning"> &nbsp;<strong> Hata!<br /> </strong></i> @FormMessages.required
     </div>
 }

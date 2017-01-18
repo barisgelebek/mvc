@@ -12,7 +12,7 @@ namespace GuvenisProjem.Models.ORM.Context
     {
         public SiteContext()
         {
-            Database.Connection.ConnectionString = "Server=.;Database=DbGuvenis; Trusted_Connection=True;";
+            Database.Connection.ConnectionString = "Server=.;Database=2511DB; Trusted_Connection=True;";
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -30,6 +30,11 @@ namespace GuvenisProjem.Models.ORM.Context
 
         public DbSet<ProjectImage> ProjectImages { get; set; }
 
+        public DbSet<Expense> Expenses { get; set; }
 
+        public DbSet<SafeBox> SafeBoxes { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+        
     }
 }

@@ -1,0 +1,60 @@
+﻿@model GuvenisProjem.Areas.Admin.Models.DTO.ExpenseVM
+
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Projesi</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.DropDownList("ProjectID", Model.drpProject, "Seçiniz", new { @class = "form-control" })
+        @*@Html.DropDownList("CategoryID", Model.drpCategories, "seçiniz")*@
+        <br />
+        @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Fatura No</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Fatura No (Girilmesi zorunlu alan)" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Açıklama</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @placeholder = "Açıklama" })
+        <br />
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Birim Adı</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @*@Html.DropDownList("BirimID", Model.drpBirim, "Seçiniz", new { @class = "form-control", })*@
+        @Html.DropDownListFor(x=> x.Unit, new SelectList(new[]{"Metre",
+"m²", "Metretul", "Adet", "Paket", "Koli", "Gram", "Kilogram"}), "Seçiniz", new { @class = "form-control" })
+        <br />
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Miktarı</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @placeholder = "Miktarı" })
+        <br />
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Tutar</label>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        @Html.TextBoxFor(x => x.Amount, new { @class = "form-control", @placeholder = "Tutarı" })
+        @Html.ValidationMessageFor(x => x.Amount)
+        <br />
+    </div>
+</div>
+
+@*<div class="ln_solid"></div>*@
+<div class="form-group">
+    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-8">
+        <br />
+        <a class="btn btn-primary" href="/Admin/Expense/Index">&nbsp;&nbsp; İptal &nbsp;&nbsp;</a>
+        <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kaydet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </div>
+</div>

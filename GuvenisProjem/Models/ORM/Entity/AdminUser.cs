@@ -28,6 +28,29 @@ namespace GuvenisProjem.Models.ORM.Entity
         [StringLength(11)]
         public string Phone { get; set; }
 
+        [StringLength(150)]
         public string Photo { get; set; }
+
+        [StringLength(20)]
+        public string Job { get; set; }
+
+        [StringLength(100)]
+        public string Adress { get; set; }
+
+        public virtual List<Role> Roles { get; set; }
+
+        private bool _isActive = false;
+        public bool IsActive
+        {
+            get
+            {
+                return _isActive;
+            }
+            set
+            {
+                _isActive = value;
+
+            }
+        }
     }
 }

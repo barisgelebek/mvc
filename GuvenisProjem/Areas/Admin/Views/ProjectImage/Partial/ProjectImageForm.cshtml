@@ -1,0 +1,57 @@
+﻿@model GuvenisProjem.Areas.Admin.Models.DTO.ProjectImageVM
+<div class="x_content">
+    <br>
+    <P class="form-horizontal form-label-left input_mask">
+        @using (Html.BeginForm("AddProjectImage", "ProjectImage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Resim Adı</label>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Resim Adı (Girilmesi zorunlu alan)" })
+                    @Html.ValidationMessageFor(x => x.Name)
+                    <br />
+                    @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                </div>
+            </div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.LabelFor(x => x.PostImage)
+                                <input type="file" multiple name="PostImage" onchange="showimagepreview(this)" />
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Projesi</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.DropDownList("ProjectID", Model.drpProject, "Seçiniz", new { @class = "form-control" })
+                                @*@Html.DropDownList("CategoryID", Model.drpCategories, "seçiniz")*@
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Resim Detay</label>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @*<textarea class="ckeditor" name="Content" id="ckeditor"></textarea>*@
+                                @Html.TextAreaFor(x => x.Description, new { @class = "ckeditor" })
+                                @Html.ValidationMessageFor(x => x.Description)
+                                <br />
+                                @*<input class="form-control" placeholder="Default Input" required="required" type="text">*@
+                            </div>
+                        </div>
+                        @*<div class="ln_solid"></div>*@
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-8">
+                                <br />
+                                <a class="btn btn-primary" href="/Admin/ProjectImage/Index">&nbsp;&nbsp; İptal &nbsp;&nbsp;</a>
+                                <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kaydet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+        }
+    </P>
+</div>
+
+
+

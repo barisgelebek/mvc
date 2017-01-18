@@ -1,16 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Projeler";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 
 @model IEnumerable<GuvenisProjem.Areas.Admin.Models.DTO.ProjectVM>
 <script src="~/scripts/custom/DeleteRecordTable.js"></script>
 <div class="">
-
     <div class="clearfix"></div>
     <div class="row">
-
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -38,7 +36,7 @@
                 </div>
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                        <strong>Kategorideki verilerin</strong> silme ve düzenleme işlemleri, arama - listeleme - sıralama işlemleri, PDF - CSV - Excel - döküman oluşturma, print ve panoya kopyalama işlemleri
+                        <strong>Projelerin</strong> silme ve düzenleme işlemleri, arama - listeleme - sıralama işlemleri, PDF - CSV - Excel - döküman oluşturma, print ve panoya kopyalama işlemleri
                     </p>
                     <p>
                         <a class="btn btn-info" href="/Admin/Project/AddProject">&nbsp;&nbsp; Yeni Proje Ekle &nbsp;&nbsp;</a>
@@ -47,6 +45,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Resim</th>
                                 <th>Kategori</th>
                                 <th>Proje Başlık</th>
                                 <th>Proje Açıklama</th>
@@ -60,6 +59,7 @@
                             {
                                 <tr id="a_@item.ID">
                                     <td>@item.ID</td>
+                                    <td><img style="width: 80px; height:40px; display: block;" src="~/Areas/Admin/Content/Site/images/project/@item.ImagePath" /></td>
                                     <td>@item.CategoryName</td>
                                     <td>@item.Title</td>
                                     <td>@Html.Raw(item.Content)</td>

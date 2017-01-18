@@ -28,5 +28,10 @@ namespace GuvenisProjem.Areas.Admin.Models.Services.HTMLDataSourceServices
         {
             throw new NotImplementedException();
         }
+
+        internal static IEnumerable<SelectListItem> getDrpSafeBoxes()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

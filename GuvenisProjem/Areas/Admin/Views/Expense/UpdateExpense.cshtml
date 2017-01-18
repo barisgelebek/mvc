@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "UpdateExpense";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/scripts/jquery-1.8.2.js"></script>
+@model GuvenisProjem.Areas.Admin.Models.DTO.ExpenseVM
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Fatura Güncelle <small>Fatura Güncelleme Formu</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>*@
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- burası-->
+            @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormMessagesPart.cshtml")
+            <script src="~/scripts/ckeditor/ckeditor.js"></script>
+            <div class="x_content">
+                <br>
+                <P class="form-horizontal form-label-left input_mask">
+                    @using (Html.BeginForm("UpdateExpense", "Expense", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                        @Html.Partial("Partial/ExpenseForm")
+                    }
+                </P>
+            </div>
+        </div>
+
+
+    </div>
+    
+
+</div>

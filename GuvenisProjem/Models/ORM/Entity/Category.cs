@@ -17,6 +17,6 @@ namespace GuvenisProjem.Models.ORM.Entity
         public string icon { get; set; }
 
         public virtual List<Project> Projects { get; set; }
-
+       
     }
 }

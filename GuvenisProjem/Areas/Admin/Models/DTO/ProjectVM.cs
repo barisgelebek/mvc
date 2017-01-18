@@ -20,6 +20,8 @@ namespace GuvenisProjem.Areas.Admin.Models.DTO
         [Display(Name ="Ana resim")]
         public HttpPostedFileBase PostImage { get; set; }
 
+        public string ImagePath { get; set; }
+
         [Required]
         public int CategoryID { get; set; }
 

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Menüler";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 @model List<GuvenisProjem.Areas.Admin.Models.DTO.SiteMenuVM>
@@ -60,7 +60,7 @@
                                         <td>@item.ID</td>
                                         <td>@item.Name</td>
                                         <td>@item.Url</td>
-                                        <td>@item.CssClass</td>
+                                        <td><i class="fa @item.CssClass"></i></td>
                                         <td><a class="btn btn-primary" href="/Admin/SiteMenu/UpdateSiteMenu/@item.ID">Güncelle</a></td>
                                         <td><button type="button" class="btn btn-danger" onclick="Delete('/Admin/SiteMenu/DeleteSiteMenu/',@item.ID)">Sil</button></td>
                                     </tr>

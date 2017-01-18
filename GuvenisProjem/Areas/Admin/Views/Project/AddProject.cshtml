@@ -75,14 +75,14 @@
             
             <div class="x_content">
                 
-                <img id="PostImage" alt="Lütfen form içindeki 'Gözat' butonu ile resim seçiniz!"/>
+                <img id="ImagePath" alt="Lütfen form içindeki 'Gözat' butonu ile resim seçiniz!"/>
 
                 <script type="text/javascript">
                     function showimagepreview(input) {
                         if (input.files && input.files[0]) {
                             var filerdr = new FileReader();
                             filerdr.onload = function (e) {
-                                $('#PostImage').attr('src', e.target.result);
+                                $('#ImagePath').attr('src', e.target.result);
                             }
                             filerdr.readAsDataURL(input.files[0]);
                         }
