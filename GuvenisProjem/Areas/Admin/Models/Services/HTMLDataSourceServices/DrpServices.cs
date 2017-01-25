@@ -9,17 +9,17 @@ namespace GuvenisProjem.Areas.Admin.Models.Services.HTMLDataSourceServices
 {
     public class DrpImageServices
     {
-        public static IEnumerable<SelectListItem> getDrpCategories()
+        public static IEnumerable<SelectListItem> getDrpServices()
         {
             using (SiteContext db = new SiteContext())
             {
-            IEnumerable<SelectListItem> drpcategories = db.Categories.Select(x => new SelectListItem()
+            IEnumerable<SelectListItem> drpservices = db.Services.Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.ID.ToString()
             }).ToList();
 
-            return drpcategories;
+            return drpservices;
             }
 
         }

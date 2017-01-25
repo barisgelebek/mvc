@@ -8,7 +8,7 @@ namespace GuvenisProjem.Areas.Admin.Models.DTO
 {
     public class SafeBoxVM : BaseVM
     {
-        //internal IEnumerable<SelectListItem> drpCategories;
+        //internal IEnumerable<SelectListItem> drpServices;
 
         [Required(ErrorMessage = "Lütfen Evran No Giriniz!")]
         public string Name { get; set; }

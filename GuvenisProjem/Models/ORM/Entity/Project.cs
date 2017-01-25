@@ -15,12 +15,12 @@ namespace GuvenisProjem.Models.ORM.Entity
         [Required]
         public string Content { get; set; }
 
-        public int CategoryID { get; set; }
+        public int ServiceID { get; set; }
 
         public string ImagePath { get; set; }
 
-        [ForeignKey("CategoryID")]
-        public virtual Category Category { get; set; }
+        [ForeignKey("ServiceID")]
+        public virtual Service Service { get; set; }
 
         public virtual List<ProjectImage> ProjectImages { get; set; }
     }

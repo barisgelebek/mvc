@@ -68,7 +68,8 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 db.SaveChanges();
 
                 ViewBag.IslemDurum = 1;
-                return RedirectToAction("Index", "ProjectImage");
+                return View(model);
+                //return RedirectToAction("Index", "ProjectImage");
             }
             else
             {
@@ -122,8 +123,8 @@ namespace GuvenisProjem.Areas.Admin.Controllers
 
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1;
-
-                return RedirectToAction("Index", "ProjectImage");
+                return View(vmodel);
+                //return RedirectToAction("Index", "ProjectImage");
             }
             else
             {

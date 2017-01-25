@@ -37,7 +37,8 @@ namespace GuvenisProjem.Models.ORM.Entity
         [StringLength(100)]
         public string Adress { get; set; }
 
-        public virtual List<Role> Roles { get; set; }
+        public int RoleID { get; set; }
+        public List<Role> Roles { get; set; }
 
         private bool _isActive = false;
         public bool IsActive

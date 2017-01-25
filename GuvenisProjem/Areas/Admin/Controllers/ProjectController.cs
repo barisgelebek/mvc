@@ -17,7 +17,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
             List<ProjectVM> model = db.Projects.Where(x => x.IsDeleted == false).OrderBy(x => x.AddDate).Select(x => new ProjectVM()
             {
                 Title = x.Title,
-                CategoryName = x.Category.Name,
+                ServiceName = x.Service.Name,
                 Content = x.Content,
                 ImagePath = x.ImagePath,
                 ID = x.ID
@@ -29,7 +29,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
         public ActionResult AddProject()
         {
             ProjectVM model = new ProjectVM();
-            model.drpCategories = DrpImageServices.getDrpCategories();
+            model.drpServices = DrpImageServices.getDrpServices();
 
             return View(model);
         }
@@ -39,7 +39,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
         public ActionResult AddProject(ProjectVM model)
         {
             ProjectVM vmodel = new ProjectVM();
-            vmodel.drpCategories = DrpImageServices.getDrpCategories();
+            vmodel.drpServices = DrpImageServices.getDrpServices();
 
             string filename = "";
             foreach (string name in Request.Files)
@@ -58,7 +58,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 Project project = new Project();
-                project.CategoryID = model.CategoryID;
+                project.ServiceID = model.ServiceID;
                 project.Title = model.Title;
                 project.Content = model.Content;
                 project.ImagePath = filename;
@@ -67,7 +67,8 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 db.SaveChanges();
 
                 ViewBag.IslemDurum = 1;
-                return RedirectToAction("Index", "Project");
+                return View(vmodel);
+                //return RedirectToAction("Index", "Project");
             }
             else
             {
@@ -81,11 +82,11 @@ namespace GuvenisProjem.Areas.Admin.Controllers
         {
             Project project = db.Projects.FirstOrDefault(x => x.ID == id);
             ProjectVM model = new ProjectVM();
-            model.CategoryID = project.CategoryID;
+            model.ServiceID = project.ServiceID;
             model.Title = project.Title;
             model.Content = project.Content;
             model.ImagePath = project.ImagePath;
-            model.drpCategories = DrpImageServices.getDrpCategories();
+            model.drpServices = DrpImageServices.getDrpServices();
 
             return View(model);
         }
@@ -95,7 +96,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
         public ActionResult UpdateProject(ProjectVM model)
         {
             ProjectVM vmodel = new ProjectVM();
-            vmodel.drpCategories = DrpImageServices.getDrpCategories();
+            vmodel.drpServices = DrpImageServices.getDrpServices();
 
             string filename = "";
             foreach (string name in Request.Files)
@@ -114,7 +115,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 Project project = db.Projects.FirstOrDefault(x => x.ID == model.ID);
-                project.CategoryID = model.CategoryID;
+                project.ServiceID = model.ServiceID;
                 project.Title = model.Title;
                 project.Content = model.Content;
                 project.ImagePath = filename;
@@ -122,7 +123,8 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1;
 
-                return RedirectToAction("Index", "Project");
+                return View(vmodel);
+                //return RedirectToAction("Index", "Project");
             }
             else
             {

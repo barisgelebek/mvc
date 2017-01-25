@@ -118,12 +118,12 @@
                             {
                                 <tr id="a_@item.ID">
                                     <td>@item.ID</td>
-                                    <td><img style="width: 40px; height:40px; display: block;" src="~/Areas/Admin/Content/Site/images/project/@item.ImagePath" alt="@item.ProjectTitle" /></td>
+                                    <td><center><img style="width: 40px; height:40px; display: block;" src="~/Areas/Admin/Content/Site/images/project/@item.ImagePath" alt="@item.ProjectTitle" /></center></td>
                                     <td>@item.Name</td>
                                     <td>@item.ProjectTitle</td>
                                     <td>@Html.Raw(item.Description)</td>
-                                    <td><a class="btn btn-primary" href="/Admin/ProjectImage/UpdateProjectImage/@item.ID">Güncelle</a></td>
-                                    <td><button type="button" class="btn btn-danger" onclick="Delete('/Admin/ProjectImage/DeleteProjectImage/',@item.ID)">Sil</button></td>
+                                    <td style="text-align:center"><a class="btn btn-primary" href="/Admin/ProjectImage/UpdateProjectImage/@item.ID">Güncelle</a></td>
+                                    <td style="text-align:center"><button type="button" class="btn btn-danger" onclick="Delete('/Admin/ProjectImage/DeleteProjectImage/',@item.ID)">Sil</button></td>
                                 </tr>
                             }
 

@@ -53,7 +53,7 @@
                                 <span>@User.Identity.Name</span>
                             }
 
-                            @DateTime.Now.ToString("dd/MMMM/yyyy - HH:mm")
+                           <span>@DateTime.Now.ToString("dd/MMMM/yyyy - HH:mm")</span> 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             
                         </div>
@@ -63,8 +63,8 @@
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <br /><hr />
-                            <span class="label label-danger">Navigation Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
+                           
+                            <h3>Navigation Menu</h3>
                             <ul class="nav side-menu">
                                 <li>
                                     <a><i class="fa fa-home"></i> Yönetim Paneli <span class="fa fa-chevron-down"></span></a>
@@ -92,10 +92,10 @@
                                     <a><i class="fa fa-desktop"></i> Hizmetler <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            <a href="/Admin/Category/AddCategory"><i class="glyphicon glyphicon-plus"></i> Hizmet Ekle</a>
+                                            <a href="/Admin/Service/AddService"><i class="glyphicon glyphicon-plus"></i> Hizmet Ekle</a>
                                         </li>
                                         <li>
-                                            <a href="/Admin/Category/Index"> Hizmet Listesi</a>
+                                            <a href="/Admin/Service/Index"> Hizmet Listesi</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -136,7 +136,7 @@
                             </ul>
                         </div>
                         <div class="menu_section">
-                            <span class="label label-success">Kasa Hareketleri&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <h3>Kasa Hareketleri</h3>
                             <ul class="nav side-menu">
                                 <li>
                                     <a><i class="fa fa-turkish-lira"></i> Kasa İşlemleri<span class="fa fa-chevron-down"></span></a>
@@ -152,7 +152,7 @@
                             </ul>
                         </div>
                         <div class="menu_section">
-                            <span class="label label-warning">Trash & Discard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <h3>Trash & Discard</h3>
                             <ul class="nav side-menu">
                                 <li>
                                     <a><i class="fa fa-trash"></i> TRASH<span class="fa fa-chevron-down"></span></a>
@@ -164,7 +164,7 @@
                                             <a href="/Admin/Project/ListOfDeleted"> Silinmiş Proje Kayıtları</a>
                                         </li>
                                         <li>
-                                            <a href="/Admin/Category/ListOfDeleted"> Silinmiş Hizmet Kayıtları</a>
+                                            <a href="/Admin/Service/ListOfDeleted"> Silinmiş Hizmet Kayıtları</a>
                                         </li>
                                         <li>
                                             <a href="/Admin/SafeBox/ListOfDeleted"> Silinmiş Fatura Kayıtları</a>
@@ -308,7 +308,7 @@
                 <footer>
                     <div class="copyright-info">
                         <p class="pull-right">
-                            &copy; guvenis.net Tüm Hakkı saklıdır &nbsp;|&nbsp; Tasarım <a href="https://www.barisgelebek.com">Barış Gelebek</a>
+                            &copy; guvenis.net Tüm Hakkı saklıdır &nbsp;|&nbsp; Powered by <a href="https://www.barisgelebek.com">Barış Gelebek</a>
                         </p>
                     </div>
                     <div class="clearfix"></div>

@@ -22,7 +22,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 Cash = x.Cash,
                 Debt = x.Debt,
                 Purchase = x.Purchase,
-                ID = x.ID
+                ID = x.ID,
 
             }).ToList();
 
@@ -56,7 +56,8 @@ namespace GuvenisProjem.Areas.Admin.Controllers
 
                 ViewBag.IslemDurum = 1;
 
-                return RedirectToAction("Index", "SafeBox");
+                return View();
+                //return RedirectToAction("Index", "SafeBox");
             }
             else
             {
@@ -102,7 +103,8 @@ namespace GuvenisProjem.Areas.Admin.Controllers
             else
             {
                 ViewBag.IslemDurum = 2;
-                return RedirectToAction("Index", "SafeBox");
+                return View();
+                //return RedirectToAction("Index", "SafeBox");
             }
 
         }

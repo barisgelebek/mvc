@@ -22,7 +22,7 @@ namespace GuvenisProjem.Models.ORM.Context
 
         public DbSet<AdminUser> AdminUsers { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Service> Services { get; set; }
 
         public DbSet<Project> Projects { get; set; }
 

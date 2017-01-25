@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GuvenisProjem.Models.ORM.Entity
 {
-    public class Category : BaseEntity
+    public class Service : BaseEntity
     {
         [Required]
         public string Name { get; set; }

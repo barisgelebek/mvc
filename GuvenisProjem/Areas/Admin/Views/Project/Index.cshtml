@@ -46,7 +46,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Resim</th>
-                                <th>Kategori</th>
+                                <th>Hizmet</th>
                                 <th>Proje Başlık</th>
                                 <th>Proje Açıklama</th>
                                 <th>İşlem</th>
@@ -59,12 +59,12 @@
                             {
                                 <tr id="a_@item.ID">
                                     <td>@item.ID</td>
-                                    <td><img style="width: 80px; height:40px; display: block;" src="~/Areas/Admin/Content/Site/images/project/@item.ImagePath" /></td>
-                                    <td>@item.CategoryName</td>
+                                    <td><center><img style="width: 80px; height:40px; display: block;" src="~/Areas/Admin/Content/Site/images/project/@item.ImagePath" /></center></td>
+                                    <td>@item.ServiceName</td>
                                     <td>@item.Title</td>
                                     <td>@Html.Raw(item.Content)</td>
-                                    <td><a class="btn btn-primary" href="/Admin/Project/UpdateProject/@item.ID">Güncelle</a></td>
-                                    <td><button type="button" class="btn btn-danger" onclick="Delete('/Admin/Project/DeleteProject/',@item.ID)">Sil</button></td>
+                                    <td style="text-align:center"><a class="btn btn-primary" href="/Admin/Project/UpdateProject/@item.ID">Güncelle</a></td>
+                                    <td style="text-align:center"><button type="button" class="btn btn-danger" onclick="Delete('/Admin/Project/DeleteProject/',@item.ID)">Sil</button></td>
                                 </tr>
                             }
 

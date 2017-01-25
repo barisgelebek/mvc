@@ -31,8 +31,6 @@ namespace GuvenisProjem.Areas.Admin.Controllers
             return View(model);
         }
 
-
-
         public ActionResult AddExpense()
         {
             ExpenseVM model = new ExpenseVM();
@@ -63,7 +61,7 @@ namespace GuvenisProjem.Areas.Admin.Controllers
 
                 ViewBag.IslemDurum = 1;
 
-                return RedirectToAction("Index", "Expense");
+                return View(vmodel);
             }
             else
             {
@@ -106,7 +104,8 @@ namespace GuvenisProjem.Areas.Admin.Controllers
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1;
 
-                return RedirectToAction("Index", "Expense");
+                return View(model);
+                //return RedirectToAction("Index", "Expense");
             }
             else
             {

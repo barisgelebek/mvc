@@ -15,7 +15,7 @@ namespace GuvenisProjem.Areas.Admin.Models.DTO
         [Required(ErrorMessage = "Lütfen Detay Giriniz!")]
         public string Content { get; set; }
 
-        public string CategoryName { get; set; }
+        public string ServiceName { get; set; }
 
         [Display(Name ="Ana resim")]
         public HttpPostedFileBase PostImage { get; set; }
@@ -23,10 +23,10 @@ namespace GuvenisProjem.Areas.Admin.Models.DTO
         public string ImagePath { get; set; }
 
         [Required]
-        public int CategoryID { get; set; }
+        public int ServiceID { get; set; }
 
         public string Project { get; set; }
 
-        public IEnumerable<SelectListItem>  drpCategories { get; set; }
+        public IEnumerable<SelectListItem>  drpServices { get; set; }
     }
 }
